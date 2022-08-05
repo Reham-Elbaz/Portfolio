@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Portfolio.Models.Owner>
+
+    <div class="container" style="margin-bottom:250px; margin-top:150px;">
+        <h3 style="color:darkcyan;">Owners</h3>
+        <hr />
+        <p style="margin-top: 50px;">
+            <a asp-action="Create" class="btn btn-outline-success">Create New</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.full_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.profile)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.avatar)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.address)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.full_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.profile)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.avatar)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.address)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            <a asp-action="ShowItems" asp-route-id="@item.Id" class="btn btn-info">Show Items</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

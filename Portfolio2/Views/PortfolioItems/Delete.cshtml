@@ -1,0 +1,42 @@
+﻿@model Portfolio.Models.PortfolioItem
+
+<div class="container" style="margin-bottom:250px; margin-top:150px;">
+    <h3 style="color:darkcyan;">Are you sure you want to delete @Model.project_name item ?</h3>
+    <hr />
+    <div>
+        <h4>PortfolioItem</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.project_name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.project_name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.image)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.image)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Owner)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Owner.full_name)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index" class="btn btn-light">Back to List</a>
+        </form>
+    </div>
+    </div>

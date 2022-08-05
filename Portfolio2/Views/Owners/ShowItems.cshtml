@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Portfolio.Models.PortfolioItem>
+
+<div class="container" style="margin-bottom:250px; margin-top:150px;">
+    <h3 style="color:darkcyan;">Portfolio Items for owner @ViewData["OwnerName"]</h3>
+    <hr />
+    <p style="margin-top: 50px;">
+        <a asp-action="Create" class="btn btn-outline-success">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.project_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.image)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.project_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.image)
+                    </td>
+
+                    <td>
+                        <a href="/PortfolioItems/Edit/@item.Id" class="btn btn-success">Edit</a> |
+                        <a href="/PortfolioItems/Details/@item.Id" class="btn btn-primary">Details</a> |
+                        <a href="/PortfolioItems/Delete/@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a asp-action="Index" class="btn btn-light">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model Portfolio.Models.Owner
+
+<div class="container" style="margin-bottom:250px; margin-top:150px;">
+    <h3 style="color:darkcyan;">Are you sure you want to delete @Model.full_name ?</h3>
+    <hr />
+
+    
+    <div>
+        
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.full_name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.full_name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.profile)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.profile)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.avatar)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.avatar)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.address)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index" class="btn btn-light">Back to List</a>
+        </form>
+    </div>
+    </div>
